@@ -31,16 +31,22 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
-    int n;
+    int n, x, maxi=-1;
     cin >> n;
-    vi v(n);
-    f(i, 0, n)  cin >> v[i];
-    f(i, 0, n-1)    if(v[i] == 1)   v[i] = 2;
-    f(i, 0, n-1)
-        if(v[i+1]%v[i] == 0)    v[i+1]++;
-    f(i, 0, n)  cout << v[i] << " ";
-    cout << endl;
+    vi v(1002, -1);
+    f(i, 1, n+1)  cin >> x, v[x] = i;
 
+    f(i, 1, 1002)   {
+        if(v[i]==-1)    continue;
+        f(j, i, 1002)  {
+            if(v[j]==-1)    continue;
+            if( __gcd(i, j)==1)
+                maxi = max(maxi, v[i]+v[j]);
+        }
+    }
+
+    cout << maxi << endl;
+    
 }
 
 

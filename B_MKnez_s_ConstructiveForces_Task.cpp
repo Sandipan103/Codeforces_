@@ -33,14 +33,22 @@ void Sandipan()    {
     
     int n;
     cin >> n;
-    vi v(n);
-    f(i, 0, n)  cin >> v[i];
-    f(i, 0, n-1)    if(v[i] == 1)   v[i] = 2;
-    f(i, 0, n-1)
-        if(v[i+1]%v[i] == 0)    v[i+1]++;
-    f(i, 0, n)  cout << v[i] << " ";
-    cout << endl;
+    if(n==3) {
+        nn;
+        return;
+    }
+    yy;
 
+    if(n%2==0)  {
+        f(i, 0, n/2)  cout << "1 -1 ";
+    }
+    else    {
+        int a = n/2-1, b=0-n/2;
+        f(i, 0, n/2)  cout << a << " " << b << " ";
+        cout << a;
+    }
+    cout << endl;
+    
 }
 
 
