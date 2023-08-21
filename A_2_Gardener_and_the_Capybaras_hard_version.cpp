@@ -30,20 +30,29 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 void Sandipan()    {
+    
+    string s;
+    cin >> s;
+    int n = s.length();
 
-    ll n, cnt=0, maxi=-1, mini=1e6, maxiCnt=0, miniCnt=0;
-    cin >> n;
-    vl v(n);
-    f(i, 0, n)  cin >> v[i];
+    // breaking point
+    for(int i=1; i<n-1; i++)   {
 
-    sort(all(v));
-    if(v[0]==v[n-1])  cout << n*1ll*(n-1) << endl;
-    else {
-      int i=0, j=n-1;
-      while(v[i]==v[0]) i++;
-      while(v[j]==v[n-1]) j--;
-      cout << 2*1ll*i*(n-1-j) << endl;
+        // total - a - 1  : n-i-1
+        for(int j=1; j<=n-1-i; j++)   {
+            string a = s.substr(0, i);
+            string b = s.substr(i, j);
+            string c = s.substr(i+j);
+            // cout << "for i, j : " << i << " " << j << " => " << a << " " << b << " " << c << endl;
+            if((b>=a && b>=c) || (b<=a && b<=c))    {
+                cout << a << " " << b << " " << c << endl;
+                return;
+            }
+        }
+
     }
+
+    cout << ":(\n";
 
 }
 
