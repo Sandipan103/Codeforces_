@@ -34,6 +34,19 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
+    int n;
+    cin >> n;
+    vl v(n);
+    ll sum = 0, odd = 0;
+    f(i, 0, n)  cin >> v[i];
+    for(int i=0; i<n; i++)  {
+        if((v[i]&1))  odd++;
+        sum += v[i];
+        ll s = sum - odd / 3;
+        if(i == 0)  cout << v[i] << " ";
+        else    cout << (s/2)*2 << " ";
+    }
+    cout << endl;
     
 }
 

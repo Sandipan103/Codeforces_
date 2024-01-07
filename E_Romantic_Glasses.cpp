@@ -34,6 +34,24 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
+    int n;
+    cin >> n;
+    vi v(n);
+    f(i, 0, n)  cin >> v[i];
+    ll even = 0, odd = 0;
+    unordered_set<ll> st;
+
+    f(i, 0, n)  {
+        if(i&1) odd += v[i];
+        else    even += v[i];
+        if(even == odd || st.find(even - odd) != st.end()) {
+            yy;
+            return;
+        }
+        st.insert(even - odd);
+    }
+
+    nn;
     
 }
 

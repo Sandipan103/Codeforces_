@@ -30,10 +30,31 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 
-
+vs solve(int n) {
+    if(n == 3)  
+        return {"169", "196", "961"};
+    vs v = solve(n-2);
+    for(auto &it : v)    
+        it.pb('0'), it.pb('0');
+    string s;
+    for(int i=0; i<(n-3)/2; i++)
+        s.pb('0');
+    v.pb("1"+s+"6"+s+"9");
+    v.pb("9"+s+"6"+s+"1");
+    return v;
+}
 
 void Sandipan()    {
     
+    int n;
+    cin >> n;
+    if(n == 1)  {
+        cout << 1 << endl;
+        return;
+    }
+    vs v = solve(n);
+    for(auto it : v)
+        cout << it << endl;
     
 }
 

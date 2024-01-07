@@ -33,7 +33,21 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 void Sandipan()    {
+
+    int n, i=0;
+    string s, ans;
+    cin >> n  >> s;
+
+    while(i < n)    {
+        ans.pb(s[i++]), ans.pb(s[i++]);
+        if(i == n-1)    ans.pb(s[i++]);
+        else if(i+1<n && (s[i+1] == 'b' || s[i+1] == 'c' || s[i+1] == 'd'))
+            ans.pb(s[i++]);
+        ans.pb('.');
+    }
     
+    ans.pob();
+    cout << ans << endl;
     
 }
 

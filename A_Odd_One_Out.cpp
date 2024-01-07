@@ -34,6 +34,15 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << (a^b^c) << endl;
+    // if(a == b)
+    //     cout << c << endl;
+    // else if(a == c)
+    //     cout << b << endl;
+    // else
+    //     cout << a << endl;
     
 }
 

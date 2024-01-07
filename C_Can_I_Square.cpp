@@ -33,7 +33,13 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 void Sandipan()    {
-    
+
+    ll n, sum = 0, temp;
+    cin >> n;
+    f(i, 0, n)  cin >> temp, sum += temp;
+    ll x = sqrt(sum);
+    if(x * 1ll * x == sum)  yy;
+    else    nn;
     
 }
 
