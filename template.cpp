@@ -35,6 +35,7 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 void Sandipan()    {
     
     
+    
 }
 
 
