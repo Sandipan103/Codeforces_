@@ -35,17 +35,25 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
-    
+    int n, k, cnt = 0;
+    cin >> n >> k;
+    vi v(n);
+    f(i, 0, n)  cin >> v[i];
+    int x = v[k-1];
+    for(auto it : v)   
+        cnt += (it > 0 && it >= x);
+
+    cout << cnt << endl;
     
 }
 
 
 
 int main()  {
-  int testCase;
-  cin >> testCase;
+//   int testCase;
+//   cin >> testCase;
   
-  while(testCase--)
+//   while(testCase--)
 
     Sandipan();
   

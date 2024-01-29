@@ -32,10 +32,35 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 
+bool checkRow(vvc &v, int n, int m, int r)  {
+    f(i, 0, m)  if(v[r][i] == 'B')  return true;
+    return false;
+}
+bool checkColumn(vvc &v, int n, int m, int c)   {
+    f(i, 0, n)  if(v[i][c] == 'B')  return true;
+    return false;
+}
+bool blackPresent(vvc &v, int n, int m) {
+    f(i, 0, n)  f(j, 0, m)
+        if(v[i][j] == 'B')   return true;
+        return false;
+}
+
 
 void Sandipan()    {
     
-    
+    int n, m, r, c;
+    cin >> n >> m >> r >> c;
+    vvc v(n,vc(m));
+    f(i, 0, n)  f(j, 0, m)  cin >> v[i][j];
+    r--, c--;
+    int ans = -1;
+    if(v[r][c] == 'B')  ans = 0;
+    else if(checkRow(v, n, m, r))   ans = 1;
+    else if(checkColumn(v, n, m, c))    ans = 1;
+    else if(blackPresent(v, n, m))  ans = 2;
+
+    cout << ans << endl;
     
 }
 
