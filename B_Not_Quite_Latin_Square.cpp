@@ -17,6 +17,7 @@ using namespace std;
 #define vvb vector<vb>
 #define all(v) v.begin(), v.end()
 #define pii pair<int, int>
+#define pll pair<ll, ll>
 #define pci pair<char, int>
 #define f(i, s, e)  for(int i=s; i<e; i++)
 #define fr(i, e, s)  for(int i=e; i>=s; i--)
@@ -34,31 +35,18 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
-    // vvc v(3, vc(3));
-    // int r;
-    // f(i, 0, 3) f(j, 0, 3) {
-    //     cin >> v[i][j];
-    //     if(v[i][j] == '?')
-    //         r = i;
-    // }
-    // bool a = false, b = false, c = false;
-    // f(i, 0, 3)  {
-    //     if(v[r][i] == 'A')  a = true;
-    //     if(v[r][i] == 'B')  b = true;
-    //     if(v[r][i] == 'C')  c = true;
-    // }
-    // if(!a)  cout << 'A' << endl;
-    // if(!b)  cout << 'B' << endl;
-    // if(!c)  cout << 'C' << endl;
-
-    char ch;
-    vi v(3);
-    f(i, 0, 9)  {
-      cin >> ch;
-      v[ch - 'A']++;
-    }
-    f(i, 0, 3)
-      if(v[i] < 3)  ch =  ('A'+i);
+  vvc v(3, vc(3));
+  int index = 0;
+  f(i, 0, 3)  f(j, 0, 3)  {
+    cin >> v[i][j];
+    if(v[i][j] == '?')  index = i;
+  }
+  set<char> st;
+  st.insert(v[index].begin(), v[index].end());
+  if(st.find('A') == st.end())  cout << "A" << endl;
+  else if(st.find('B') == st.end())  cout << "B" << endl;
+  else  cout << "C" << endl;
+  
 }
 
 
