@@ -16,10 +16,7 @@ using namespace std;
 #define vb vector<bool>
 #define vvb vector<vb>
 #define all(v) v.begin(), v.end()
-#define allr(v) v.rbegin(), v.rend()
 #define pii pair<int, int>
-#define F first
-#define S second
 #define pll pair<ll, ll>
 #define pci pair<char, int>
 #define f(i, s, e)  for(ll i=s; i<e; i++)
@@ -29,7 +26,7 @@ using namespace std;
 ll mod = 1e9+7;
 
 ll mul(ll a, ll b)  {return ((a%mod) *1ll* (b%mod)) %mod;}
-ll gcd(ll a, ll b)   {return __gcd(a, b); }
+int gcd(int a, int b)   {return __gcd(a, b); }
 ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
@@ -38,16 +35,26 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
-    
-    
+    ll n, m1 = 0, m2 = 0;
+    cin >> n;
+    vl v(n);
+    f(i, 0, n)  {
+        cin >> v[i];
+        if(v[i] >= m1)   m2 = m1, m1 = v[i];
+        else if(v[i] > m2)  m2 = v[i];
+    }
+    f(i, 0, n)  {
+        if(v[i] == m1)  v[i] -= m2;
+        else    v[i] -= m1;
+    }
+    f(i, 0, n)  cout << v[i] << " ";
+    cout << endl;
 }
 
 
 
 int main()  {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  ll testCase;
+  int testCase;
   cin >> testCase;
   
   while(testCase--)
