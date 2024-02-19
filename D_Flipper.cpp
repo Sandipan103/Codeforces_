@@ -36,15 +36,36 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 
 
+vl findPermutation(vl &v, ll l, ll r)  {
+    ll n = v.size();
+    vl ans;
+    f(i, r+1, n)  ans.pb(v[i]);
+    fr(i, r, l) ans.pb(v[i]);
+    f(i, 0, l)  ans.pb(v[i]);
+    return ans;
+}
+
 void Sandipan()    {
     
     ll n;
-    string s;
-    cin >> n >> s;
-    set<pair<char, char>> st;
-    f(i, 1, n)
-      st.insert({s[i-1], s[i]});
-    cout << st.size() << endl;
+    cin >> n;
+    vl v(n), ans(n);
+    f(i, 0, n)  cin >> v[i], ans[i] = v[i];
+    sort(all(ans));
+    ll maxIndex = max_element(all(v)) - v.begin();
+    if(maxIndex == 0)   
+    f(i, 0, n)
+        if(v[i] == n-1)    maxIndex = i;
+    
+    f(i, 0, maxIndex) {
+        vl temp = findPermutation(v, i, maxIndex-1);
+        ans = max(ans, temp);
+    }
+    ans = max(ans, findPermutation(v, maxIndex, maxIndex));
+
+    for(auto it : ans)  cout << it << " ";
+    cout << endl;
+    
 }
 
 

@@ -39,12 +39,22 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 void Sandipan()    {
     
     ll n;
-    string s;
-    cin >> n >> s;
-    set<pair<char, char>> st;
-    f(i, 1, n)
-      st.insert({s[i-1], s[i]});
-    cout << st.size() << endl;
+    cin >> n;
+    vl v(n);
+    f(i, 0, n)  cin >> v[i];
+    sort(all(v));
+    if(v[0]&1)  {
+        yy;
+        return;
+    }
+    else f(i, 1, n) {
+        if(v[i]&1)  {
+            nn;
+            return;
+        }
+    }
+    yy;
+    
 }
 
 
