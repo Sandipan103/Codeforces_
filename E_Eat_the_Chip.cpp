@@ -16,18 +16,38 @@ using namespace std;
 #define vb vector<bool>
 #define vvb vector<vb>
 #define all(v) v.begin(), v.end()
+#define allr(v) v.rbegin(), v.rend()
 #define pii pair<int, int>
+#define F first
+#define S second
 #define pll pair<ll, ll>
 #define pci pair<char, int>
-#define f(i, s, e)  for(int i=s; i<e; i++)
-#define fr(i, e, s)  for(int i=e; i>=s; i--)
+#define f(i, s, e)  for(ll i=s; i<e; i++)
+#define fr(i, e, s)  for(ll i=e; i>=s; i--)
 #define yy cout << "YES\n"
 #define nn cout << "NO\n"
 ll mod = 1e9+7;
 
 ll mul(ll a, ll b)  {return ((a%mod) *1ll* (b%mod)) %mod;}
-int gcd(int a, int b)   {return __gcd(a, b); }
+ll gcd(ll a, ll b)   {return __gcd(a, b); }
 ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
+
+template<typename T>
+void print(vector<T> &v)   {
+    for(auto it : v)
+        cout << it << " ";
+    cout << endl << "------------" << endl;
+}
+
+template<typename T>
+void print2d(vector<T> &v)   {
+    for(auto it : v)    {
+        for(auto x : it)
+            cout << x << " ";
+        cout << endl;
+    }
+    cout << endl << "------------" << endl;
+}
 
 
 
@@ -35,36 +55,18 @@ ll lcm(ll a, ll b)  {ll g = gcd(a%mod, b%mod); return (a*1ll*b)/g;}
 
 void Sandipan()    {
     
-    ll n, q, l, r;
-    cin >> n;
-    vl v(n), pref(n);
-    f(i, 0, n)  cin >> v[i];
-    pref[0] = -1;
-    ll prev = -1;
-    f(i, 1, n)  {
-      if(v[i] == v[i-1])  pref[i] = prev;
-      else  pref[i] = i-1, prev = i-1;
-    }
-
-    // cout << "pringing pref" << endl;
-    // f(i, 0, n)  cout << pref[i] << " ";
-    // cout << endl;
-
-    cin >> q;
-    f(i, 0, q)  {
-      cin >> l >> r;
-      l--, r--;
-      if(pref[r] < l)
-        cout << "-1 -1" << endl;
-      else  cout << pref[r]+1 << " " << r+1 << endl;
-    }
-    cout << endl;
+    ll n, m, xa, ya, xb, yb;
+    cin >> n >> m >> xa >> ya >> xb >> yb;
+    
+    
 }
 
 
 
 int main()  {
-  int testCase;
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  ll testCase;
   cin >> testCase;
   
   while(testCase--)
